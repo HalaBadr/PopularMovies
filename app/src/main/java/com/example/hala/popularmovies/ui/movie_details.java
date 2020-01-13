@@ -60,10 +60,10 @@ public class movie_details extends AppCompatActivity {
 
         overView.setText(Overview);
         date.setText(Date);
-        vote_text.setText(String.valueOf(Vote));
+        vote_text.setText(String.valueOf((int) Vote/10));
         originalTitle.setText(Title);
        // vote.setNumStars((int) Vote/2);
-        //vote.setRating((float)Vote);
+        vote.setRating((float)Vote/20);
         vote.getRating();
 
     }

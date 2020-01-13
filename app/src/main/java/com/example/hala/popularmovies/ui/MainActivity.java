@@ -37,10 +37,8 @@ public class MainActivity extends AppCompatActivity implements gridInterface {
 
         //MVVM
         movie_viewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
-        for (int i = 1 ; i <= 500 ; i++){
-            String s = i +"";
-            movie_viewModel.getPopular_Movies(s);
-        }
+            movie_viewModel.getPopular_Movies();
+
 
         movie_viewModel.moviepostmutableLiveData.observe(this, new Observer<List<Movie>>() {
             @Override
@@ -53,8 +51,11 @@ public class MainActivity extends AppCompatActivity implements gridInterface {
 
     @Override
     public void sowMovies(List<Movie> movies) {
-        this.movies.addAll(movies);
-        movieAdapter.movies.addAll(movies);
+       // this.movies.addAll(movies);
+       /* for(int i = 0 ; i < movies.size() ; i++){
+            movieAdapter.movies.add(movies.get(i));
+        }*/
+        movieAdapter.movies=movies;
         movieAdapter.notifyDataSetChanged();
 
     }

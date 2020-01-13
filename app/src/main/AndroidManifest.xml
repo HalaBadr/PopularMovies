@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            />
         <activity android:name=".ui.movie_details" />
 
     </application>

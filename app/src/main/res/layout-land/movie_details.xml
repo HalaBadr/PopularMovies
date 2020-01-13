@@ -40,13 +40,13 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/movie_image_detail"
             android:layout_width="0dp"
-            android:layout_height="10000dp"
+            android:layout_height="1000dp"
             android:src="@drawable/image"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guide_center"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="5dp"
+
             />
         <TextView
             android:id="@+id/original_title"
@@ -97,30 +97,29 @@
             android:id="@+id/vote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/original_title"
-            app:layout_constraintBottom_toTopOf="@+id/vote_text"
+            app:layout_constraintStart_toEndOf="@id/vote_text"
+            app:layout_constraintTop_toTopOf="@+id/vote_text"
             app:layout_constraintTop_toBottomOf="@+id/over_view"
             android:numStars="5"
             android:stepSize="0.1"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:rating="1"
+            android:rating="0"
             android:max="5"
-
+            android:progressTint="@color/colorAccent"
             />
         <TextView
             android:id="@+id/vote_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/original_title"
-            app:layout_constraintEnd_toEndOf="@id/guide_end"
-            app:layout_constraintTop_toBottomOf="@+id/vote"
+            app:layout_constraintTop_toTopOf="@+id/vote"
             android:text="vote"
-            android:textSize="30sp"
-            android:textColor="@color/gray"
-            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textColor="@color/black"
             android:fontFamily="sans-serif"
-            />
+             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

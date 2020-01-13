@@ -16,15 +16,16 @@ import retrofit2.Response;
 
 public class MovieViewModel extends ViewModel {
     public MutableLiveData<List<Movie>> moviepostmutableLiveData = new MutableLiveData<>();
+    List<Movie> All = new ArrayList<>();
 
-
-    public void getPopular_Movies(String i ) {
+    public void getPopular_Movies() {
         MovieDBInterface apiInterface = MovieDBAPI.getClient().create(MovieDBInterface.class);
-        //for (int i = 1; i <= 500; i++){
-            apiInterface.getPopular_Movies(i).enqueue(new Callback<Movie_Page>() {
+        for (int i = 1; i <= 500; i++){
+            apiInterface.getPopular_Movies(String.valueOf(i)).enqueue(new Callback<Movie_Page>() {
                 @Override
                 public void onResponse(Call<Movie_Page> call, Response<Movie_Page> response) {
-                    moviepostmutableLiveData.setValue(response.body().getResults());
+                    All.addAll(response.body().getResults());
+
                 }
 
                 @Override
@@ -32,6 +33,7 @@ public class MovieViewModel extends ViewModel {
                     System.out.println("there is error : " + t);
                 }
             });
-        //}
+        }
+        moviepostmutableLiveData.setValue(All);
     }
 }
