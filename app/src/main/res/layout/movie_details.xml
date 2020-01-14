@@ -94,21 +94,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/original_title"
-        app:layout_constraintTop_toBottomOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/vote"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
 
         android:text=""
         android:textSize="30sp"
         android:textColor="@color/gray"
         android:fontFamily="sans-serif"
-        android:layout_marginTop="30dp"
+
         />
     <RatingBar
         android:id="@+id/vote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/vote_text"
-        app:layout_constraintTop_toTopOf="@+id/vote_text"
+        app:layout_constraintTop_toBottomOf="@+id/date"
         android:numStars="5"
         android:stepSize="0.1"
         android:scaleX="0.8"
@@ -116,19 +116,20 @@
         android:rating="0"
         android:progressTint="@color/colorAccent"
         android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
         />
     <TextView
         android:id="@+id/vote_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/original_title"
-        app:layout_constraintTop_toBottomOf="@id/over_view"
+        app:layout_constraintTop_toTopOf="@id/vote"
         android:text="vote"
         android:textStyle="bold"
         android:textSize="35sp"
         android:textColor="@color/black"
         android:fontFamily="sans-serif"
-        android:layout_marginTop="30dp"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

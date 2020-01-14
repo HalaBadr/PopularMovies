@@ -14,14 +14,13 @@ import com.example.hala.popularmovies.R;
 import com.example.hala.popularmovies.network.models.Movie;
 import com.example.hala.popularmovies.ui.movie_details;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Callback;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 import static java.security.AccessController.getContext;
 
@@ -35,8 +34,6 @@ public class Movie_adapter extends ArrayAdapter<Movie> {
         this.context = context;
         this.movies = movies;
     }
-
-
 
         @Override
         public int getCount () {
@@ -97,10 +94,21 @@ public class Movie_adapter extends ArrayAdapter<Movie> {
                     }
                 });
 
-                Picasso.get()
+                /*Picasso.get()
                         .load(image_base_url+movie.getPoster())
                         .placeholder(R.drawable.image)
-                        .into(movie_image);
+                        .into(movie_image);*/
+                Picasso.get().load(Uri.parse(image_base_url+movie.getPoster())).fit().into(movie_image, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
 
             }
 

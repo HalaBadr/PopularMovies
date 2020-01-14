@@ -1,4 +1,4 @@
-package com.example.hala.popularmovies.ui;
+package com.example.hala.popularmovies.ViewModel;
 
 import com.example.hala.popularmovies.network.api.MovieDBAPI;
 import com.example.hala.popularmovies.network.api.MovieDBInterface;
@@ -25,7 +25,7 @@ public class MovieViewModel extends ViewModel {
                 @Override
                 public void onResponse(Call<Movie_Page> call, Response<Movie_Page> response) {
                     All.addAll(response.body().getResults());
-
+                    moviepostmutableLiveData.setValue(All);
                 }
 
                 @Override
@@ -33,7 +33,6 @@ public class MovieViewModel extends ViewModel {
                     System.out.println("there is error : " + t);
                 }
             });
-        }
-        moviepostmutableLiveData.setValue(All);
+            }
     }
 }

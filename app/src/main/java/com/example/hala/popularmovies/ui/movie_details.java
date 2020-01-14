@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class movie_details extends AppCompatActivity {
 
@@ -31,12 +32,12 @@ public class movie_details extends AppCompatActivity {
     String Image , Overview , Date , Title ;
     double Vote = 0 ;
     Bundle bundle;
-
+    Unbinder unbind;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_details);
-        ButterKnife.bind(this);
+        unbind = ButterKnife.bind(this);
 
         bundle = getIntent().getExtras();
 
@@ -60,11 +61,22 @@ public class movie_details extends AppCompatActivity {
 
         overView.setText(Overview);
         date.setText(Date);
-        vote_text.setText(String.valueOf((int) Vote/10));
+        vote_text.setText(String.valueOf((Vote/10)/2));
         originalTitle.setText(Title);
        // vote.setNumStars((int) Vote/2);
-        vote.setRating((float)Vote/20);
+        vote.setRating((float)(Vote/10)/2);
         vote.getRating();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onDestroy() {
+        unbind.unbind();
+        super.onDestroy();
     }
 }
